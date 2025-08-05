@@ -1133,11 +1133,12 @@ html {
 }
 
 /* Estilo para a imagem da sua logo que funciona como título */
-.hero-logo {
-  width: 100%; /* Faz a imagem se ajustar à largura do contêiner */
-  max-width: 800px; /* Impede que a imagem fique maior que 800px em telas grandes */
-  height: auto; /* Mantém a proporção da imagem ao redimensionar a largura */
-  margin-bottom: 1.5rem; /* Espaço entre a logo e o subtítulo */
+.hero-content {
+  text-align: center;
+  z-index: 2;
+  width: 100%;      /* ADICIONAR: Garante que o contêiner respeite os limites da tela */
+  max-width: 800px;
+  padding: 0 20px;
 }
 
 /* --- Estilos do Carrossel de Imagens (Sobre Mim) --- */
