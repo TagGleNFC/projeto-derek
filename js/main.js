@@ -270,3 +270,74 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(el)
   })
 })
+// --- Lógica do Carrossel da Página Sobre Mim ---
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Executa o código apenas se os elementos do carrossel existirem na página
+  const carouselImage = document.getElementById("carousel-image");
+  if (!carouselImage) {
+    return; // Se não encontrar a imagem, para a execução e evita erros.
+  }
+
+  // **IMPORTANTE**: Coloque aqui os caminhos para as suas imagens
+  const images = [
+    "imgs/produtor2.jpeg", // Imagem 1
+    "imgs/produtor.jpeg", // Imagem 2 (exemplo, troque o nome)
+    "imgs/produtor3.jpeg",
+    "imgs/produtor4.jpeg",
+    "imgs/produtor5.jpeg"  // Imagem 3 (exemplo, troque o nome)
+  ];
+
+  let currentIndex = 0;
+
+  const prevBtn = document.getElementById("prev-btn");
+  const nextBtn = document.getElementById("next-btn");
+  const dotsContainer = document.getElementById("carousel-dots");
+
+  // Função para atualizar a imagem e os pontos
+  function updateCarousel() {
+    // Adiciona um efeito de fade out
+    carouselImage.style.opacity = '0';
+
+    setTimeout(() => {
+      carouselImage.src = images[currentIndex];
+      // Adiciona um efeito de fade in
+      carouselImage.style.opacity = '1';
+    }, 400); // Deve corresponder à duração da transição no CSS
+
+    // Atualiza os pontos indicadores
+    const dots = dotsContainer.querySelectorAll(".carousel-dot");
+    dots.forEach((dot, index) => {
+      if (index === currentIndex) {
+        dot.classList.add("active");
+      } else {
+        dot.classList.remove("active");
+      }
+    });
+  }
+
+  // Criar os pontos indicadores dinamicamente
+  images.forEach((_, index) => {
+    const dot = document.createElement("span");
+    dot.classList.add("carousel-dot");
+    dot.addEventListener("click", () => {
+      currentIndex = index;
+      updateCarousel();
+    });
+    dotsContainer.appendChild(dot);
+  });
+
+  // Event Listeners para os botões
+  prevBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+    updateCarousel();
+  });
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+    updateCarousel();
+  });
+
+  // Iniciar o carrossel
+  updateCarousel();
+});
