@@ -72,7 +72,7 @@ function handlePurchase(beatTitle) {
 function loadFeaturedBeats() {
   const featuredBeatsGrid = document.getElementById("featured-beats-grid");
   if (featuredBeatsGrid && typeof allBeats !== 'undefined') {
-    const featuredBeats = allBeats.slice(0, 4); // Pega os 4 primeiros beats do arquivo de dados
+    const featuredBeats = allBeats.slice(0, 3);
     featuredBeatsGrid.innerHTML = featuredBeats.map((beat) => createBeatCard(beat)).join("");
   }
 }

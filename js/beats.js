@@ -1,5 +1,44 @@
 // js/beats.js
 
+// --- Lógica do Menu de Navegação (Hambúrguer) ---
+const navToggle = document.getElementById("nav-toggle");
+const navMenu = document.getElementById("nav-menu");
+
+if (navToggle && navMenu) {
+  navToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+
+    // Animação dos ícones de hambúrguer para "X"
+    const bars = navToggle.querySelectorAll(".bar");
+    bars.forEach((bar, index) => {
+      if (navMenu.classList.contains("active")) {
+        if (index === 0) bar.style.transform = "rotate(45deg) translate(5px, 5px)";
+        if (index === 1) bar.style.opacity = "0";
+        if (index === 2) bar.style.transform = "rotate(-45deg) translate(7px, -6px)";
+      } else {
+        bar.style.transform = "none";
+        bar.style.opacity = "1";
+      }
+    });
+  });
+}
+
+// Fecha o menu ao clicar em um link (para mobile)
+const navLinks = document.querySelectorAll(".nav-link");
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    if (navMenu && navMenu.classList.contains("active")) {
+      navMenu.classList.remove("active");
+      const bars = navToggle.querySelectorAll(".bar");
+      bars.forEach((bar) => {
+        bar.style.transform = "none";
+        bar.style.opacity = "1";
+      });
+    }
+  });
+});
+// --- Fim da Lógica do Menu ---
+
 document.addEventListener("DOMContentLoaded", () => {
     // Garante que o array allBeats (de data-beats.js) foi carregado
     if (typeof allBeats === 'undefined') {
@@ -130,10 +169,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // --- Event Listeners ---
     if (searchInput) searchInput.addEventListener("input", filterBeats);
     if (genreFilter) genreFilter.addEventListener("change", filterBeats);
-    if (sortFilter) sortFilter.addEventListener("change", () => {
-        sortBeats();
-        renderBeats();
-    });
+    if (sortFilter) {
+        sortFilter.addEventListener("change", () => {
+            sortBeats();
+            renderBeats();
+        });
+    }
 
     // --- Initial Load ---
     filterBeats();
