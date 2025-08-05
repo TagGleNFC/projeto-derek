@@ -1115,11 +1115,9 @@ html {
 .hero-content {
   text-align: center;
   z-index: 2;
-  width: 100%;
+  width: 100%;      /* ADICIONAR: Garante que o contêiner respeite os limites da tela */
   max-width: 800px;
   padding: 0 20px;
-  margin-left: auto;   /* ADICIONAR: Centraliza o contêiner na horizontal */
-  margin-right: auto;  /* ADICIONAR: Centraliza o contêiner na horizontal */
 }
 
 /* Oculta o título de texto original para dar lugar à imagem */
