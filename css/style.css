@@ -1115,8 +1115,11 @@ html {
 .hero-content {
   text-align: center;
   z-index: 2;
+  width: 100%;
   max-width: 800px;
   padding: 0 20px;
+  margin-left: auto;   /* ADICIONAR: Centraliza o contêiner na horizontal */
+  margin-right: auto;  /* ADICIONAR: Centraliza o contêiner na horizontal */
 }
 
 /* Oculta o título de texto original para dar lugar à imagem */
@@ -1133,12 +1136,11 @@ html {
 }
 
 /* Estilo para a imagem da sua logo que funciona como título */
-.hero-content {
-  text-align: center;
-  z-index: 2;
-  width: 100%;      /* ADICIONAR: Garante que o contêiner respeite os limites da tela */
-  max-width: 800px;
-  padding: 0 20px;
+.hero-logo {
+  width: 100%; /* Faz a imagem se ajustar à largura do contêiner */
+  max-width: 800px; /* Impede que a imagem fique maior que 800px em telas grandes */
+  height: auto; /* Mantém a proporção da imagem ao redimensionar a largura */
+  margin-bottom: 1.5rem; /* Espaço entre a logo e o subtítulo */
 }
 
 /* --- Estilos do Carrossel de Imagens (Sobre Mim) --- */
