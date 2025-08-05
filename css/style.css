@@ -1134,7 +1134,9 @@ html {
 
 /* Estilo para a imagem da sua logo que funciona como título */
 .hero-logo {
-  max-width: 800px; /* Ajuste a largura conforme necessário */
+  width: 100%; /* Faz a imagem se ajustar à largura do contêiner */
+  max-width: 800px; /* Impede que a imagem fique maior que 800px em telas grandes */
+  height: auto; /* Mantém a proporção da imagem ao redimensionar a largura */
   margin-bottom: 1.5rem; /* Espaço entre a logo e o subtítulo */
 }
 
