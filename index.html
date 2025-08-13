@@ -32,28 +32,15 @@
 
     <section class="hero">
         <video autoplay loop muted playsinline id="hero-video">
-            <source src="videos/clipe5bandidas - Trim.mp4" type="video/mp4">
-            Seu navegador não suporta vídeos HTML5.
+            <source src="videos/seu-video-de-fundo.mp4" type="video/mp4">
         </video>
+
         <div class="hero-content">
             <img src="imgs/logo-hero.png" alt="Logo Smoke" class="hero-logo">
             <p class="hero-subtitle">Beats profissionais para elevar sua música ao próximo nível</p>
             <div class="hero-buttons">
-                <a href="beats.html" class="btn btn-primary btn-lg">
-                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M9 18V5l12-2v13"></path>
-                        <circle cx="6" cy="18" r="3"></circle>
-                        <circle cx="18" cy="16" r="3"></circle>
-                    </svg>
-                    Explorar Beats
-                </a>
-                <a href="sobre.html" class="btn btn-outline btn-lg">
-                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
-                        <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
-                    </svg>
-                    Sobre Mim
-                </a>
+                <a href="beats.html" class="btn btn-primary btn-lg">Explorar Beats</a>
+                <a href="sobre.html" class="btn btn-outline btn-lg">Sobre Mim</a>
             </div>
         </div>
     </section>
@@ -61,7 +48,7 @@
     <section class="featured-beats">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">BEATS EM DESTAQUE</h2>
+                <h2 class="section-title">Beats em Destaque</h2>
                 <p class="section-subtitle">Os melhores beats da nossa coleção</p>
             </div>
             
@@ -77,95 +64,33 @@
     <section class="voice-presets">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">PRESETS</h2>
+                <h2 class="section-title">PROMOÇÃO</h2>
                 <p class="section-subtitle">Transforme sua voz com nossos presets profissionais</p>
             </div>
-    
+
             <div class="presets-carousel-container">
-                <button class="carousel-arrow prev" id="preset-prev">&#10094;</button>
-                
+                <button class="carousel-arrow prev" id="preset-prev">❮</button>
                 <div class="presets-carousel" id="presets-carousel">
                     <div class="preset-slide active">
-                        <div class="preset-content">
-                            <div class="preset-video">
-                                <video muted loop playsinline poster="imgs/preset-cover-1.jpg">
-                                    <source src="videos/clipe5bandidas - Trim.mp4" type="video/mp4">
-                                    Seu navegador não suporta vídeos HTML5.
-                                </video>
-                            </div>
-                            <div class="preset-info">
-                                <h3 class="preset-title">Preset Mc Pedrinho</h3>
-                                <ul class="preset-includes-list">
-                                    <li>Compressor de Voz</li>
-                                    <li>Equalizador Cirúrgico</li>
-                                    <li>Saturação Harmônica</li>
-                                    <li>Efeito de Brilho</li>
-                                    <li>Removedor de Sibilância</li>
-                                </ul>
-                                <div class="preset-audio-player">
-                                    <p class="audio-player-title">Ouça uma demonstração:</p>
-                                    <audio controls src="audios/preset5bandidas.mp3">
-                                        Seu navegador não suporta o elemento de áudio.
-                                    </audio>
-                                </div>
-                                <a href="pagina-preset.html?preset=mc-pedrinho" class="btn btn-primary" style="margin-top: 1.5rem;">Ver Detalhes e Comprar</a>
-                            </div>
                         </div>
-                    </div>
-    
                     <div class="preset-slide">
-                        <div class="preset-content">
-                            <div class="preset-video">
-                                 <video muted loop playsinline poster="imgs/preset-cover-2.jpg">
-                                    <source src="videos/presetmcmagal.mp4" type="video/mp4">
-                                    Seu navegador não suporta vídeos HTML5.
-                                </video>
-                            </div>
-                            <div class="preset-info">
-                                <h3 class="preset-title">Preset Mc Magal</h3>
-                                <ul class="preset-includes-list">
-                                    <li>Compressor de Voz</li>
-                                    <li>Equalizador Cirúrgico</li>
-                                    <li>Saturação Harmônica</li>
-                                    <li>Efeito de Brilho</li>
-                                    <li>Removedor de Sibilância</li>
-                                </ul>
-                                <div class="preset-audio-player">
-                                    <p class="audio-player-title">Ouça uma demonstração:</p>
-                                    <audio controls src="audios/presetmcmagal.mp3">
-                                        Seu navegador não suporta o elemento de áudio.
-                                    </audio>
-                                </div>
-                                <a href="pagina-preset.html?preset=trap-pesado" class="btn btn-primary" style="margin-top: 1.5rem;">Ver Detalhes e Comprar</a>
-                            </div>
                         </div>
-                    </div>
-                 </div>
-                
-                <button class="carousel-arrow next" id="preset-next">&#10095;</button>
+                </div>
+                <button class="carousel-arrow next" id="preset-next">❯</button>
             </div>
         </div>
     </section>
-
-    <section class="stats">
+    
+    <section class="featured-beats" id="beats-kits">
         <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number">500+</div>
-                    <div class="stat-label">Beats Vendidos</div>
+            <div class="section-header">
+                <h2 class="section-title">Beat Kits</h2>
+                <p class="section-subtitle">Pacotes completos para inspirar sua próxima produção</p>
+            </div>
+            <div class="beats-grid" id="beat-kits-grid">
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number">200+</div>
-                    <div class="stat-label">Artistas Satisfeitos</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label">Gêneros Musicais</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">5</div>
-                    <div class="stat-label">Anos de Experiência</div>
-                </div>
+            <div class="section-footer">
+                <a href="#" class="btn btn-outline btn-lg">Ver Todos os Kits</a>
             </div>
         </div>
     </section>
@@ -219,23 +144,8 @@
         </div>
     </footer>
 
-    <div class="audio-modal" id="audio-modal">
-        <div class="audio-modal-content">
-            <div class="audio-modal-header">
-                <h3 id="audio-modal-title">Beat Title</h3>
-                <button class="audio-modal-close" id="audio-modal-close">&times;</button>
-            </div>
-            <div class="audio-player">
-                <audio id="audio-player" controls>
-                    <source src="" type="audio/mpeg">
-                    Seu navegador não suporta o elemento de áudio.
-                </audio>
-            </div>
-        </div>
-    </div>
-
     <script src="js/data-beats.js"></script>
+    <script src="js/data-beat-kits.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/presets.js"></script> 
 </body>
-</html> 
+</html>
