@@ -67,7 +67,7 @@ const allBeats = [
     price: 139.90,
     priceDisplay: "$139.90",
     image: "imgs/capas/capamaria.jpg",
-    preview: "audios/previamaria.mp3",
+    preview: "audios/previa-maria.mp3",
     date: "2025-08-12",
     description: "Beat de trap estilo Caio Luccas x Felipe Ret",
     vibe: ["Felipe Ret", "Caio Luccas"],
