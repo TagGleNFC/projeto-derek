@@ -37,10 +37,7 @@ function shuffleArray(array) {
     return array;
 }
 
-function handlePurchase(beatTitle) {
-    const encodedTitle = encodeURIComponent(beatTitle);
-    window.open(`https://kirvano.com/checkout?beat=${encodedTitle}`, "_blank");
-}
+// MODIFICADO: A função handlePurchase foi removida deste arquivo por ser redundante.
 
 function createBeatCard(beat) {
     const priceFormatted = `R$ ${beat.price.toFixed(2)}`;
@@ -130,8 +127,7 @@ function initializeWaveformPlayer(beat) {
     let normalizedData = [];
     let animationFrameId;
 
-    // MODIFICADO: Procura por 'beat.audio' e depois por 'beat.preview' como alternativa.
-    const audioSrc = beat.audio || beat.preview;
+    const audioSrc = beat.preview;
 
     if (!audioSrc) {
         console.error(`Áudio não encontrado para o beat: ${beat.title}`);
@@ -195,7 +191,16 @@ function initializeWaveformPlayer(beat) {
 
     playButton.addEventListener('click', togglePlay);
     artworkPlayButton.addEventListener('click', togglePlay);
-    purchaseButton.addEventListener('click', () => handlePurchase(beat.title));
+    
+    // MODIFICADO: O botão de compra agora abre o link diretamente.
+    purchaseButton.addEventListener('click', () => {
+        if (beat.purchaseLink) {
+            window.open(beat.purchaseLink, '_blank');
+        } else {
+            console.error("Link de compra não encontrado para este beat!");
+        }
+    });
+
 
     audioElement.addEventListener('play', () => {
         playIcon.style.display = 'none';

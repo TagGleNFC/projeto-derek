@@ -41,12 +41,16 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // --- FUNÇÕES ---
 
-    function handlePurchase(beatTitle) {
-        const encodedTitle = encodeURIComponent(beatTitle);
-        window.open(`https://kirvano.com/checkout?beat=${encodedTitle}`, "_blank");
+    // MODIFICADO: A função agora abre o link diretamente.
+    function handlePurchase(purchaseLink) {
+        if (purchaseLink) {
+            window.open(purchaseLink, "_blank");
+        } else {
+            console.error("Link de compra não encontrado!");
+        }
     }
 
-    // MODIFICADO: Função de criar card sem o botão de play.
+    // MODIFICADO: O botão de comprar agora tem um atributo 'data-link' com a URL de compra.
     function createBeatCard(beat) {
         const priceFormatted = `R$ ${beat.price.toFixed(2)}`;
         
@@ -66,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         </div>
                         <div class="card-buttons">
                             <span class="btn btn-outline btn-sm">Detalhes</span>
-                            <button class="buy-btn btn btn-primary btn-sm" data-title="${beat.title}">Comprar</button>
+                            <button class="buy-btn btn btn-primary btn-sm" data-link="${beat.purchaseLink}">Comprar</button>
                         </div>
                     </div>
                 </div>
@@ -136,14 +140,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     if(searchInput) searchInput.addEventListener("input", applyFiltersAndRender);
 
-    // MODIFICADO: Listener de clique apenas para o botão de comprar.
+    // MODIFICADO: O listener de clique agora pega o 'data-link' e chama a função handlePurchase.
     document.addEventListener('click', (event) => {
         const buyButton = event.target.closest('.buy-btn');
 
         if (buyButton) {
             event.preventDefault(); // Impede que o link do card seja ativado
-            const title = buyButton.dataset.title;
-            handlePurchase(title);
+            const link = buyButton.dataset.link;
+            handlePurchase(link);
         }
     });
 

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drum Kits - Dj Smoke</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="imgs/logo.png" alt="Logo Smoke" class="logo-image">
+            </a>
+            
+             <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Início</a>
+                <div class="nav-item-dropdown">
+                    <a href="#" class="nav-link active">Catálogos <span class="dropdown-arrow">▼</span></a>
+                    <div class="dropdown-menu">
+                        <a href="beats.html" class="dropdown-link">Beats</a>
+                        <a href="presets.html" class="dropdown-link">Presets</a>
+                        <a href="drumkits.html" class="dropdown-link">Drum Kits</a>
+                    </div>
+                </div>
+                <a href="sobre.html" class="nav-link">Sobre Mim</a>
+                <a href="https://wa.me/5511912679324?text=Ol%C3%A1%20Dj%20Smoke%2C%20vi%20seu%20contato%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20seu%20trabalho." class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Contato</a>
+            </div>
+            
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Catálogo de Drum Kits</h1>
+            <p class="page-subtitle">Kits de bateria exclusivos para suas produções</p>
+        </div>
+    </section>
+
+    <section class="filters">
+        <div class="container">
+            <div class="filters-row">
+                <div class="filters-left">
+                    <div class="search-box">
+                        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                        <input type="text" id="search-input" placeholder="Buscar por nome..." class="search-input">
+                    </div>
+                    <select id="genre-filter" class="filter-select">
+                        <option value="all">Todos os Gêneros</option>
+                        <option value="Trap">Trap</option>
+                        <option value="Funk">Funk</option>
+                        <option value="Boombap">Boombap</option>
+                    </select>
+                </div>
+                <div class="filters-right">
+                    <select id="sort-filter" class="filter-select">
+                        <option value="newest">Mais Recentes</option>
+                        <option value="price-low">Menor Preço</option>
+                        <option value="price-high">Maior Preço</option>
+                    </select>
+                </div>
+            </div>
+            <div class="results-count">
+                <span id="results-count"></span>
+            </div>
+        </div>
+    </section>
+
+    <section class="beats-catalog">
+        <div class="container">
+            <div class="beats-grid" id="drumkits-grid">
+                </div>
+            <div class="no-results" id="no-results" style="display: none;">
+                <p>Nenhum drum kit encontrado com os filtros selecionados.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+         </footer>
+
+    <script src="js/data-drumkits.js"></script>
+    <script src="js/drumkits.js"></script>
+</body>
+</html>

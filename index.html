@@ -16,10 +16,19 @@
             <img src="imgs/logo.png" alt="Logo Smoke" class="logo-image">
         </a>
             <div class="nav-menu" id="nav-menu">
-                <a href="index.html" class="nav-link active">Início</a>
-                <a href="beats.html" class="nav-link">Beats</a>
-                <a href="sobre.html" class="nav-link">Sobre Mim</a>
-                <a href="https://wa.me/5511912679324?text=Ol%C3%A1%20Dj%20Smoke%2C%20vi%20seu%20contato%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20seu%20trabalho." class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Contato</a>
+            <a href="index.html" class="nav-link">Início</a>
+    
+            <div class="nav-item-dropdown">
+            <a href="#" class="nav-link">Catálogos <span class="dropdown-arrow">▼</span></a>
+            <div class="dropdown-menu">
+            <a href="beats.html" class="dropdown-link">Beats</a>
+            <a href="presets.html" class="dropdown-link">Presets</a>
+            <a href="drumkits.html" class="dropdown-link">Drum Kits</a>
+            </div>
+            </div>
+    
+            <a href="sobre.html" class="nav-link">Sobre Mim</a>
+            <a href="https://wa.me/5511912679324?text=Ol%C3%A1%20Dj%20Smoke%2C%20vi%20seu%20contato%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20seu%20trabalho." class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Contato</a>
             </div>
             
             <div class="nav-toggle" id="nav-toggle">
@@ -77,15 +86,15 @@
     <section class="voice-presets">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">PRESETS</h2>
+                <h2 class="section-title">PRESETS DE VOZ</h2>
                 <p class="section-subtitle">Transforme sua voz com nossos presets profissionais</p>
             </div>
     
             <div class="presets-carousel-container">
-                <button class="carousel-arrow prev" id="preset-prev">&#10094;</button>
+                <button class="carousel-arrow prev" id="preset-prev">❮</button>
                 
                 <div class="presets-carousel" id="presets-carousel">
-                    <div class="preset-slide active">
+                    <div class="preset-slide active" data-audio-src="audios/preset5bandidas.mp3">
                         <div class="preset-content">
                             <div class="preset-video">
                                 <video muted loop playsinline poster="imgs/preset-cover-1.jpg">
@@ -103,17 +112,17 @@
                                     <li>Removedor de Sibilância</li>
                                 </ul>
                                 <div class="preset-audio-player">
-                                    <p class="audio-player-title">Ouça uma demonstração:</p>
-                                    <audio controls src="audios/preset5bandidas.mp3">
-                                        Seu navegador não suporta o elemento de áudio.
-                                    </audio>
+                                    <button class="waveform-play-btn">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" width="24px" height="24px"><path d="M8 5v14l11-7z"></path></svg>
+                                    </button>
+                                    <div class="waveform-container"></div>
                                 </div>
-                                <a href="pagina-preset.html?preset=mc-pedrinho" class="btn btn-primary" style="margin-top: 1.5rem;">Ver Detalhes e Comprar</a>
+                                <a href="pagina-preset.html?id=1" class="btn btn-primary" style="margin-top: 1.5rem;">Ver Detalhes e Comprar</a>
                             </div>
                         </div>
                     </div>
     
-                    <div class="preset-slide">
+                    <div class="preset-slide" data-audio-src="audios/presetmcmagal.mp3">
                         <div class="preset-content">
                             <div class="preset-video">
                                  <video muted loop playsinline poster="imgs/preset-cover-2.jpg">
@@ -131,41 +140,61 @@
                                     <li>Removedor de Sibilância</li>
                                 </ul>
                                 <div class="preset-audio-player">
-                                    <p class="audio-player-title">Ouça uma demonstração:</p>
-                                    <audio controls src="audios/presetmcmagal.mp3">
-                                        Seu navegador não suporta o elemento de áudio.
-                                    </audio>
+                                    <button class="waveform-play-btn">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" width="24px" height="24px"><path d="M8 5v14l11-7z"></path></svg>
+                                    </button>
+                                    <div class="waveform-container"></div>
                                 </div>
-                                <a href="pagina-preset.html?preset=trap-pesado" class="btn btn-primary" style="margin-top: 1.5rem;">Ver Detalhes e Comprar</a>
+                                <a href="pagina-preset.html?id=2" class="btn btn-primary" style="margin-top: 1.5rem;">Ver Detalhes e Comprar</a>
                             </div>
                         </div>
                     </div>
                  </div>
                 
-                <button class="carousel-arrow next" id="preset-next">&#10095;</button>
+                <button class="carousel-arrow next" id="preset-next">❯</button>
             </div>
         </div>
     </section>
 
-    <section class="stats">
+    <section class="meus-hits">
         <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number">500+</div>
-                    <div class="stat-label">Beats Vendidos</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">200+</div>
-                    <div class="stat-label">Artistas Satisfeitos</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label">Gêneros Musicais</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">5</div>
-                    <div class="stat-label">Anos de Experiência</div>
-                </div>
+            <div class="section-header">
+                <h2 class="section-title">Top Produções</h2>
+            </div>
+            <div class="hits-list">
+                 <article class="hit-item">
+                    <div class="hit-artwork">
+                        <img src="imgs/capafalapramim.jpg" alt="Capa da música">
+                    </div>
+                    <div class="hit-info">
+                        <h3 class="hit-artist">Sotam x Fontes</h3>
+                        <h4 class="hit-song-title">Fala Pra Mim</h4>
+                        <p class="hit-views">Prod. Dj Smoke</p>
+                        <a href="https://open.spotify.com/intl-pt/track/1ob28cuxL8jIeWFsqzefpj?si=8233f0d40022442f" class="btn btn-outline btn-sm" target="_blank" rel="noopener noreferrer">Ouvir no Spotify</a>
+                    </div>
+                </article>
+                <article class="hit-item">
+                    <div class="hit-artwork">
+                        <img src="imgs/capamcmagal.jpg" alt="Capa da música">
+                    </div>
+                    <div class="hit-info">
+                        <h3 class="hit-artist">MC Magal x Aaron Modesto x MC Farias CF x MC PTK x MC Thalles</h3>
+                        <h4 class="hit-song-title">"2K24"</h4>
+                        <p class="hit-views">Prod. Dj Smoke</p>
+                        <a href="https://open.spotify.com/intl-pt/track/3irYVW9idoJ7AKKMwLN6xv?si=8f781b4803584333" class="btn btn-outline btn-sm" target="_blank" rel="noopener noreferrer">Ouvir no Spotify</a>
+                    </div>
+                </article>
+                <article class="hit-item">
+                    <div class="hit-artwork">
+                        <img src="imgs/capa5bandidas2.jpg" alt="Capa da música 5 Bandidas">
+                    </div>
+                    <div class="hit-info">
+                        <h3 class="hit-artist">MC Pedrinho X uVini</h3>
+                        <h4 class="hit-song-title">5 Bandidas</h4>
+                        <p class="hit-views">Prod. DJ Smoke X DJ Tio Rico</p>
+                        <a href="https://www.youtube.com/watch?v=RT1FcL4-lAo&list=RDRT1FcL4-lAo&start_radio=1" class="btn btn-outline btn-sm" target="_blank" rel="noopener noreferrer">Ouvir no Youtube</a>
+                    </div>
+                </article>   
             </div>
         </div>
     </section>
@@ -173,11 +202,11 @@
     <section class="cta">
         <div class="container">
             <div class="cta-content">
-                <h2 class="cta-title">Pronto para criar seu próximo hit?</h2>
+                <h2 class="cta-title">Quer Produzir sua música com o Dj Smoke ou ter um Beat único para você?</h2>
                 <p class="cta-subtitle">Crie um beat próprio e personalizado para você</p>
-                <div class="cta-buttons">
+                <div class="cta-buttons">   
                     <a href="https://wa.me/5511912679324?text=Ol%C3%A1%20Dj%20Smoke%2C%20vi%20seu%20contato%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20seu%20trabalho." class="btn btn-primary btn-lg">Entrar em contato</a>
-                    <a href="sobre.html" class="btn btn-outline btn-lg">Conhecer o Produtor</a>
+                    <a href="sobre.html" class="btn btn-outline btn-lg">Conheça o Produtor</a>
                 </div>
             </div>
         </div>
@@ -214,12 +243,13 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 Andrade Dev. Todos os direitos reservados.</p>
+                <p>© 2025 Andrade Dev. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
     <script src="js/data-beats.js"></script>
+    <script src="https://unpkg.com/wavesurfer.js"></script>
     <script src="js/main.js"></script>
     <script src="js/presets.js"></script> 
 </body>
-</html> 
+</html>

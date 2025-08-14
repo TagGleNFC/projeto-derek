@@ -15,8 +15,9 @@ body {
 
 .container {
   width: 100%;
+  max-width: 1400px; /* ADICIONE ESTA LINHA */
   margin: 0 auto;
-  padding: 0 40px; /* Espaçamento lateral para o conteúdo não colar na borda */
+  padding: 0 40px; 
 }
 
 /* Navigation */
@@ -1505,4 +1506,171 @@ html {
 .beat-details .beat-style {
   color: #9ca3af;
   font-size: 0.875rem;
+}
+.voice-presets .presets-carousel-container {
+    max-width: none;
+}
+
+/* --- Estilos do Player de Áudio do Preset (ANTIGOS - REMOVER OU COMENTAR) --- */
+/* .preset-audio-player {
+    margin-top: 1.5rem;
+    width: 100%;
+}
+
+.audio-player-title {
+    color: #d1d5db;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+}
+
+.preset-info audio {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.preset-info audio::-webkit-media-controls-panel {
+    background-color: #1f2937;
+    border-radius: 8px;
+}
+
+.preset-info audio::-webkit-media-controls-play-button,
+.preset-info audio::-webkit-media-controls-mute-button {
+    background-color: #11479e;
+    border-radius: 50%;
+}
+
+.preset-info audio::-webkit-media-controls-timeline {
+    background-color: #374151;
+    border-radius: 4px;
+    margin: 0 10px;
+}
+
+.preset-info audio::-webkit-media-controls-current-time-display,
+.preset-info audio::-webkit-media-controls-time-remaining-display {
+    color: #d1d5db;
+} 
+*/
+
+/* --- NOVOS Estilos para o Player de Áudio com Waveform --- */
+.preset-audio-player {
+    margin-top: 1.5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.waveform-play-btn {
+    background-color: #11479e;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #ffffff;
+    flex-shrink: 0;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.waveform-play-btn:hover {
+    background-color: #1b6dff;
+    transform: scale(1.05);
+}
+
+.waveform-play-btn svg {
+    width: 24px;
+    height: 24px;
+    margin-left: 2px; /* Ajuste para centralizar o ícone de play */
+}
+
+.waveform-play-btn.playing svg {
+   margin-left: 0; /* Remove o ajuste quando o ícone for de pause */
+}
+
+.waveform-container {
+    width: 100%;
+    height: 50px; /* Altura da onda sonora */
+}
+/* Adicionar ao final do seu arquivo style.css */
+
+/* --- Estilos do Menu Dropdown na Navegação --- */
+.nav-item-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  display: none; /* Começa escondido */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: rgba(17, 24, 39, 0.95); /* Fundo escuro semi-transparente */
+  backdrop-filter: blur(10px);
+  min-width: 160px;
+  border-radius: 8px;
+  border: 1px solid #374151;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1001; /* Garante que fique sobre outros elementos */
+  padding: 0.5rem 0;
+}
+
+.dropdown-link {
+  color: #d1d5db;
+  padding: 12px 20px;
+  text-decoration: none;
+  display: block;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.dropdown-link:hover {
+  background-color: #11479e;
+  color: #ffffff;
+}
+
+/* Mostra o dropdown ao passar o mouse */
+.nav-item-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Seta para indicar o dropdown */
+.nav-link .dropdown-arrow {
+    font-size: 0.7em;
+    margin-left: 4px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.nav-item-dropdown:hover .nav-link .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+/* Responsividade para o dropdown */
+@media (max-width: 768px) {
+  /* No mobile, o dropdown vira parte do menu principal */
+  .nav-item-dropdown {
+    display: block;
+    text-align: center;
+  }
+  .dropdown-menu {
+    position: static;
+    display: none; /* Continua escondido por padrão */
+    background: none;
+    border: none;
+    box-shadow: none;
+    width: 100%;
+    padding: 0;
+  }
+  .nav-item-dropdown:hover .dropdown-menu {
+    display: block; /* Revela no clique/hover */
+  }
+  .dropdown-link {
+      padding: 10px;
+      background-color: rgba(31, 41, 55, 0.5); /* Cor de fundo para destacar */
+      margin: 5px 0;
+  }
 }

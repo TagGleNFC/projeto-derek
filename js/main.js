@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     loadFeaturedBeats();
     loadBeatKits();
     initializeCarousel();
-    initializePresetsCarousel();
+    initializePresetsCarousel(); // A função será substituída abaixo
 
     window.addEventListener("scroll", () => {
         const navbar = document.querySelector(".navbar");
@@ -37,8 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // --- Funções de Criação de Cards e Compra ---
-
-// MODIFICADO: Função de criar card sem o botão de play e com preço corrigido.
 function createItemCard(item, page) {
     const priceFormatted = `R$ ${item.price.toFixed(2)}`;
     return `
@@ -62,7 +60,6 @@ function createItemCard(item, page) {
 }
 
 // --- Funções de Carregamento de Conteúdo ---
-
 function loadFeaturedBeats() {
     const featuredBeatsGrid = document.getElementById("featured-beats-grid");
     if (featuredBeatsGrid && typeof allBeats !== 'undefined') {
@@ -81,33 +78,88 @@ function loadBeatKits() {
 
 // --- Lógicas de Carrossel ---
 
+// NOVA FUNÇÃO PARA O CARROSSEL DE PRESETS COM WAVEFORM
 function initializePresetsCarousel() {
-    const presetsCarousel = document.getElementById("presets-carousel");
-    if (presetsCarousel) {
-        const slides = presetsCarousel.querySelectorAll(".preset-slide");
-        const prevBtn = document.getElementById("preset-prev");
-        const nextBtn = document.getElementById("preset-next");
-        let currentIndex = 0;
+    const carousel = document.getElementById("presets-carousel");
+    if (!carousel) return;
 
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.toggle('active', i === index);
+    const slides = Array.from(carousel.querySelectorAll(".preset-slide"));
+    const prevBtn = document.getElementById("preset-prev");
+    const nextBtn = document.getElementById("preset-next");
+    let currentIndex = 0;
+    let wavesurfers = []; // Array para guardar as instâncias do WaveSurfer
+
+    const iconPlay = '<svg viewBox="0 0 24 24" fill="currentColor" width="24px" height="24px"><path d="M8 5v14l11-7z"></path></svg>';
+    const iconPause = '<svg viewBox="0 0 24 24" fill="currentColor" width="24px" height="24px"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg>';
+
+    // Inicializa o WaveSurfer para cada slide
+    slides.forEach((slide, index) => {
+        const container = slide.querySelector('.waveform-container');
+        const playBtn = slide.querySelector('.waveform-play-btn');
+        const audioSrc = slide.dataset.audioSrc;
+
+        if (container && playBtn && audioSrc) {
+            const wavesurfer = WaveSurfer.create({
+                container: container,
+                waveColor: '#374151',
+                progressColor: '#11479e',
+                height: 50,
+                barWidth: 2,
+                barRadius: 2,
+                responsive: true,
+                cursorWidth: 0
+            });
+
+            wavesurfer.load(audioSrc);
+            wavesurfers[index] = wavesurfer;
+
+            playBtn.addEventListener('click', () => {
+                wavesurfer.playPause();
+            });
+
+            wavesurfer.on('play', () => {
+                playBtn.innerHTML = iconPause;
+                playBtn.classList.add('playing');
+            });
+
+            wavesurfer.on('pause', () => {
+                playBtn.innerHTML = iconPlay;
+                playBtn.classList.remove('playing');
+            });
+             wavesurfer.on('finish', () => {
+                playBtn.innerHTML = iconPlay;
+                playBtn.classList.remove('playing');
             });
         }
+    });
 
-        prevBtn.addEventListener("click", () => {
-            currentIndex = (currentIndex > 0) ? currentIndex - 1 : slides.length - 1;
-            showSlide(currentIndex);
+    function showSlide(index) {
+        // Pausa todos os outros áudios antes de trocar o slide
+        wavesurfers.forEach((ws, i) => {
+            if (i !== index && ws.isPlaying()) {
+                ws.pause();
+            }
         });
 
-        nextBtn.addEventListener("click", () => {
-            currentIndex = (currentIndex < slides.length - 1) ? currentIndex + 1 : 0;
-            showSlide(currentIndex);
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
         });
-
-        showSlide(currentIndex);
+        currentIndex = index;
     }
+
+    prevBtn.addEventListener("click", () => {
+        const newIndex = (currentIndex > 0) ? currentIndex - 1 : slides.length - 1;
+        showSlide(newIndex);
+    });
+
+    nextBtn.addEventListener("click", () => {
+        const newIndex = (currentIndex < slides.length - 1) ? currentIndex + 1 : 0;
+        showSlide(newIndex);
+    });
+
+    showSlide(currentIndex); // Mostra o slide inicial
 }
+
 
 function initializeCarousel() {
     const carouselImage = document.getElementById("carousel-image");

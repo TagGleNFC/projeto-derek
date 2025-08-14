@@ -115,6 +115,7 @@
     grid-template-columns: 2fr 1fr;
     gap: 3rem;
     align-items: flex-start;
+    max-width: 1200px;
 }
 
 .beat-description h2.section-title,
